@@ -12,7 +12,7 @@ admin.initializeApp({
   databaseURL: process.env.databaseURL
 });
 
-function sendNotification(title, message, image, url = "", topic) {
+function sendNotification(title, message, image, url = "", topic, type) {
     const payload = { 
     notification : {
         title : title,
@@ -20,7 +20,7 @@ function sendNotification(title, message, image, url = "", topic) {
         content_available : "true",
         image:image,
         url:url,
-        tipe:topic
+        tipe:type
     }, 
     data: {
         title : title,
@@ -28,11 +28,11 @@ function sendNotification(title, message, image, url = "", topic) {
         content_available : "true",
         image:image,
         url:url,
-        tipe:topic        
+        tipe:type        
     }
 }
 
-    admin.messaging().sendToTopic('topic', payload, options).then((response) => {
+    admin.messaging().sendToTopic(topic, payload, options).then((response) => {
     // Response is a message ID string.
     console.log('Successfully sent message:', response);
   })

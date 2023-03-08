@@ -29,7 +29,7 @@ async function scrapeTokopedia() {
     if (!checkIfProductExists(product)) {
       products.push(product);
       let message = `${name} tersedia di Tokopedia dengan harga ${price}`
-      sendNotification("JKT48 MERCH", message, imageUrl, productUrl, "testtopic")
+      sendNotification("JKT48 MERCH", message, imageUrl, productUrl, "testtopic", "TOKOPEDIA")
     }
   });
 
